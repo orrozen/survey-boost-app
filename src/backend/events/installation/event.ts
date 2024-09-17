@@ -1,11 +1,11 @@
 import { auth } from '@wix/essentials';
 import { collections } from '@wix/data';
 import { appInstances } from '@wix/app-management';
-import { CHECKOUT_SUBMISSIONS_COLLECTION_ID, SURVEY_COLLECTION_ID } from '../../consts';
+import { CHECKOUT_COLLECTION_ID, SETTINGS_COLLECTION_ID } from '../../consts';
 
 appInstances.onAppInstanceInstalled(() => {
   auth.elevate(collections.createDataCollection)({
-    _id: SURVEY_COLLECTION_ID,
+    _id: SETTINGS_COLLECTION_ID,
     displayName: "Carbon Offset Settings",
     fields: [
       { key: 'title', type: collections.Type.TEXT },
@@ -30,7 +30,7 @@ appInstances.onAppInstanceInstalled(() => {
   });
 
   auth.elevate(collections.createDataCollection)({
-    _id: CHECKOUT_SUBMISSIONS_COLLECTION_ID,
+    _id: CHECKOUT_COLLECTION_ID,
     displayName: "Carbon Offset Checkout",
     fields: [
       // In this case, checkoutId is stored as an "added" field that is not neccessarry

@@ -5,6 +5,7 @@ import { httpClient } from '@wix/essentials';
 import { checkout } from '@wix/ecom';
 import { CarbonOffset } from '../../../../components/carbon-offset';
 import { PluginSkeleton } from '../../../../components/plugin-skeleton/plugin-skeleton';
+import type { Settings } from '../../../../types';
 
 type Props = {
   checkoutId: string;
@@ -17,6 +18,7 @@ let refreshCheckout: CallbackFunction = () => {
 };
 
 const CustomElement: FC<Props> = (props) => {
+  const [settings, setSettings] = useState<Settings>();
   const [checked, setChecked] = useState<boolean>(false);
   const [purchaseFlowId, setPurchaseFlowId] = useState<string>('');
 
@@ -35,6 +37,7 @@ const CustomElement: FC<Props> = (props) => {
       const checkoutRes = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout?purchaseFlowId=${purchaseFlowId}`);
       const checkoutData = await checkoutRes.json();
 
+      setSettings(settingsData);
       setPurchaseFlowId(purchaseFlowId ?? '');
       setChecked(checkoutData.shouldAdd ?? false);
     };
@@ -46,6 +49,17 @@ const CustomElement: FC<Props> = (props) => {
 
   return (
     <>
+      {!settings ? (
+        <PluginSkeleton />
+      ) : (
+        <CarbonOffset
+          settings={settings}
+          purchaseFlowId={purchaseFlowId}
+          checkoutId={checkoutId}
+          checked={checked}
+          refreshCheckout={refreshCheckout}
+        />
+      )}
     </>
   );
 };
