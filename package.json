@@ -9,6 +9,7 @@
     "@wix/design-system": "^1.0.0",
     "@wix/ecom": "^1.0.711",
     "@wix/essentials": "^0.1.5",
+    "@wix/marketing": "^1.0.65",
     "@wix/wix-ui-icons-common": "^3.0.0",
     "react-to-webcomponent": "^2.0.0"
   },
