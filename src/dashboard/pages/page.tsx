@@ -42,7 +42,7 @@ const Index: FC = () => {
       ) : (
         <Page height='100vh'>
           <Page.Header
-            title="Carbon Offset"
+            title="AAA"
             subtitle="Let your customers balance the carbon footprint of their order."
             actionsBar={
               <MainButton {...survey} />
