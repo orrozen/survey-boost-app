@@ -1,7 +1,7 @@
 import {CouponType, SubmissionCoupon, Survey} from "../types";
 
 // Update according to your app's needed collections
-export const SURVEY_COLLECTION_ID = 'survey-boost-settings';
+export const SURVEY_COLLECTION_ID = 'survey-boost';
 export const CHECKOUT_SUBMISSIONS_COLLECTION_ID = 'survey-boost-checkout-submissions';
 export const TenPercentOffCoupon: SubmissionCoupon =  {
   type: CouponType.PERCENT_OFF_AMOUNT,

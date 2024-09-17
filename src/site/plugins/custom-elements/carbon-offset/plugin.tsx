@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import reactToWebComponent from 'react-to-webcomponent';
 import { httpClient } from '@wix/essentials';
 import { checkout } from '@wix/ecom';
-import { CarbonOffset } from '../../../../components/carbon-offset';
-import { PluginSkeleton } from '../../../../components/plugin-skeleton/plugin-skeleton';
 
 type Props = {
   checkoutId: string;
