@@ -1,5 +1,5 @@
 {
   "$schema": "https://dev.wix.com/wix-cli/schemas/wix-config.json",
-  "appId": "<YOUR_APP_ID>",
+  "appId": "23e0c088-861a-4c34-a76a-4b3ec984e5d6",
   "projectId": "ecom-templathon"
 }
