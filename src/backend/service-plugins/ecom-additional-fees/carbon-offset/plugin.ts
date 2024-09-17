@@ -1,14 +1,14 @@
 import { auth } from '@wix/essentials';
 import { items } from '@wix/data';
 import { additionalFees } from '@wix/ecom/service-plugins/context';
-import { CHECKOUT_SUBMISSIONS_COLLECTION_ID, SURVEY_COLLECTION_ID, DEFAULT_SURVEY } from '../../../consts';
+import { CHECKOUT_COLLECTION_ID, SETTINGS_COLLECTION_ID, DEFAULT_SETTING } from '../../../consts';
 import type { Settings } from '../../../../types';
 
 const getCheckoutDataFromCollection = async (purchaseFlowId: string) => {
   try {
     const { data } = await auth.elevate(items.getDataItem)(
       purchaseFlowId,
-      { dataCollectionId: CHECKOUT_SUBMISSIONS_COLLECTION_ID },
+      { dataCollectionId: CHECKOUT_COLLECTION_ID },
     );
 
     return data;
@@ -19,7 +19,7 @@ const getCheckoutDataFromCollection = async (purchaseFlowId: string) => {
 
 const getSettingsDataFromCollection = async () => {
   return auth.elevate(items.queryDataItems)({
-    dataCollectionId: SURVEY_COLLECTION_ID,
+    dataCollectionId: SETTINGS_COLLECTION_ID,
   }).find()
 };
 
@@ -37,7 +37,7 @@ additionalFees.provideHandlers({
         additionalFees: [{
           name: 'Carbon Offset',
           code: 'carbon-offset-fee',
-          price: `${settingsData.amount ?? DEFAULT_SURVEY.amount}`,
+          price: `${settingsData.amount ?? DEFAULT_SETTING.amount}`,
         }],
         currency: metadata.currency!,
       };
