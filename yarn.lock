@@ -1511,6 +1511,66 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wix/marketing@npm:^1.0.65":
+  version: 1.0.65
+  resolution: "@wix/marketing@npm:1.0.65"
+  dependencies:
+    "@wix/marketing_ads-txt": "npm:1.0.15"
+    "@wix/marketing_coupons": "npm:1.0.27"
+    "@wix/marketing_marketing-consent": "npm:1.0.9"
+    "@wix/marketing_seo-keyword-suggestions": "npm:1.0.15"
+  checksum: 10c0/3acb33179e4b53af0647d8c993631e646128b06114c8842b98236f28e0a3c1ef88e1c6ee19fee13890cf08281a3c2c2cb26c1d7004a561e581b4aa46b59d134e
+  languageName: node
+  linkType: hard
+
+"@wix/marketing_ads-txt@npm:1.0.15":
+  version: 1.0.15
+  resolution: "@wix/marketing_ads-txt@npm:1.0.15"
+  dependencies:
+    "@wix/metro-runtime": "npm:^1.1792.0"
+    "@wix/motion-edm-autogen-query-wrapper": "npm:^1.0.37"
+    "@wix/sdk-runtime": "npm:^0.3.14"
+    "@wix/sdk-types": "npm:^1.9.2"
+  checksum: 10c0/50cab0b1813435d30380a116908d1dbc8253159e3ae0ce2c3c04bfb47b76bdb36150a49b49b4d0ff1ff8aae9565d74f62e5890da5b9c409db0db0abcc5e8c00d
+  languageName: node
+  linkType: hard
+
+"@wix/marketing_coupons@npm:1.0.27":
+  version: 1.0.27
+  resolution: "@wix/marketing_coupons@npm:1.0.27"
+  dependencies:
+    "@wix/metro-runtime": "npm:^1.1792.0"
+    "@wix/motion-edm-autogen-query-wrapper": "npm:^1.0.37"
+    "@wix/sdk-runtime": "npm:^0.3.14"
+    "@wix/sdk-types": "npm:^1.9.2"
+  checksum: 10c0/6513fc2ff980e8a17456d5685f529a8dd069b9734ed7f0230ae5bce0d379d16facfd95893d0aed8945fead455864e5e266339ba3c7f67da9437af9ed1733ea9d
+  languageName: node
+  linkType: hard
+
+"@wix/marketing_marketing-consent@npm:1.0.9":
+  version: 1.0.9
+  resolution: "@wix/marketing_marketing-consent@npm:1.0.9"
+  dependencies:
+    "@wix/metro-runtime": "npm:^1.1792.0"
+    "@wix/motion-edm-autogen-query-wrapper": "npm:^1.0.37"
+    "@wix/sdk-runtime": "npm:^0.3.14"
+    "@wix/sdk-types": "npm:^1.9.2"
+  checksum: 10c0/c60057e842febee915ef1a9ada42b67a95c62bd728a83115810287988af9ee197078e763d8b964a9612b359d8d013a03467e3c0eef2b36494b915aa8b42fcb05
+  languageName: node
+  linkType: hard
+
+"@wix/marketing_seo-keyword-suggestions@npm:1.0.15":
+  version: 1.0.15
+  resolution: "@wix/marketing_seo-keyword-suggestions@npm:1.0.15"
+  dependencies:
+    "@wix/metro-runtime": "npm:^1.1792.0"
+    "@wix/motion-edm-autogen-query-wrapper": "npm:^1.0.37"
+    "@wix/sdk-runtime": "npm:^0.3.14"
+    "@wix/sdk-types": "npm:^1.9.2"
+  checksum: 10c0/0ac79f6c6393be0c1e079a6d477ed564a427f31a87832bf85017e63c03e837844fa9cfb6808dabde12602c93ee3e52fabf7664b403f5d7cec0470c3c4db8db09
+  languageName: node
+  linkType: hard
+
 "@wix/media@npm:^1.0.98":
   version: 1.0.110
   resolution: "@wix/media@npm:1.0.110"
@@ -2102,6 +2162,7 @@ __metadata:
     "@wix/design-system": "npm:^1.0.0"
     "@wix/ecom": "npm:^1.0.711"
     "@wix/essentials": "npm:^0.1.5"
+    "@wix/marketing": "npm:^1.0.65"
     "@wix/wix-ui-icons-common": "npm:^3.0.0"
     react: "npm:16.14.0"
     react-dom: "npm:16"
