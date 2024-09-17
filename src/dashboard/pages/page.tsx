@@ -12,26 +12,26 @@ import {
 import { MainButton } from '../../components/main-button';
 import { PluginPreview } from '../../components/plugin-preview';
 import { SettingsForm } from '../../components/settings-form';
-import type { Settings } from '../../types';
+import type { Survey } from '../../types';
 import '@wix/design-system/styles.global.css';
 
 const Index: FC = () => {
-  const [settings, setSettings] = useState<Settings>()
+  const [survey, setSurvey] = useState<Survey>()
 
   useEffect(() => {
     const fetchSettings = async () => {
-      const res = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/settings`);
-      const data: Settings = (await res.json());
-
-      setSettings(data);
+      const res = await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/survey`);
+      const data: Survey = (await res.json());
+      setSurvey(data);
     };
 
     fetchSettings();
   }, []);
 
+
   return (
     <WixDesignSystemProvider features={{ newColorsBranding: true }}>
-      {!settings ? (
+      {!survey ? (
         <Box
           height='100vh'
           align='center'
@@ -45,7 +45,7 @@ const Index: FC = () => {
             title="Carbon Offset"
             subtitle="Let your customers balance the carbon footprint of their order."
             actionsBar={
-              <MainButton {...settings} />
+              <MainButton {...survey} />
             }
           />
           <Page.Content>
@@ -53,14 +53,14 @@ const Index: FC = () => {
               <Cell span={4}>
                 <Card stretchVertically>
                   <Card.Header
-                    title="Settings"
+                    title="Survey"
                     subtitle="This appears on your checkout page."
                   />
                   <Card.Divider />
                   <Card.Content>
                     <SettingsForm
-                      settings={settings}
-                      setSettings={setSettings}
+                      survey={survey}
+                      setSurvey={setSurvey}
                     />
                   </Card.Content>
                 </Card>
@@ -73,7 +73,7 @@ const Index: FC = () => {
                   />
                   <Card.Divider />
                   <Card.Content>
-                    <PluginPreview {...settings} />
+                    <PluginPreview {...survey} />
                   </Card.Content>
                 </Card>
               </Cell>

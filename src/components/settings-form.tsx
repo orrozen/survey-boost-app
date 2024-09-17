@@ -6,7 +6,7 @@ import {
     Input,
     NumberInput, Text
 } from '@wix/design-system';
-import type {Survey} from '../types';
+import {CouponType, Survey} from '../types';
 import '@wix/design-system/styles.global.css';
 
 type Props = {
