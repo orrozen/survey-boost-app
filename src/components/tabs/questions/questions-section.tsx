@@ -1,5 +1,5 @@
 import React, { type FC } from 'react';
-import { Survey } from '../types';
+import { Survey } from '../../../types';
 import { Button, Card, EmptyState, TextButton } from '@wix/design-system';
 import { Add } from '@wix/wix-ui-icons-common';
 import { AddQuestionIllustration } from './add-question-illustration';

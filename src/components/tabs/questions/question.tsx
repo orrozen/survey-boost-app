@@ -1,5 +1,5 @@
 import React, { useState, type FC } from 'react';
-import { Question } from '../types';
+import { Question } from '../../../types';
 import '@wix/design-system/styles.global.css';
 import {
   Card,

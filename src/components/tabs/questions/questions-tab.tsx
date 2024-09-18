@@ -1,9 +1,9 @@
 import React, { type FC } from 'react';
-import { Survey } from '../types';
+import { Survey } from '../../../types';
 import '@wix/design-system/styles.global.css';
 import { QuestionsSection } from './questions-section';
 import { CouponSection } from './coupon-section';
-import { Box, Cell, Layout } from '@wix/design-system';
+import { Cell, Layout } from '@wix/design-system';
 
 export interface QuestionsTabProps {
   survey?: Survey;

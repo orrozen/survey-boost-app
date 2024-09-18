@@ -14,8 +14,9 @@ import {
 import { MainButton } from '../../components/main-button';
 import type { Survey } from '../../types';
 import '@wix/design-system/styles.global.css';
-import { QuestionsTab } from '../../components/questions-tab';
+import { QuestionsTab } from '../../components/tabs/questions/questions-tab';
 import { SaveButton } from '../../components/save-button';
+import { ResponsesTab } from '../../components/tabs/responses/responses-tab';
 
 export interface TabContent {
   [key: number]: JSX.Element;
@@ -49,6 +50,7 @@ const Index: FC = () => {
         setAddNewDisabled={setAddNewDisabled}
       />
     ),
+    2: <ResponsesTab survey={survey} />,
   };
 
   const onCancel = () => {
@@ -82,7 +84,7 @@ const Index: FC = () => {
               <Cell>
                 <Tabs
                   activeId={activeId}
-                  onClick={(value) => setActiveId(1)}
+                  onClick={(value) => setActiveId(value.id)}
                   items={[
                     { id: 1, title: 'Questions' },
                     { id: 2, title: 'Responses' },

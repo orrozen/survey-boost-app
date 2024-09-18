@@ -25,9 +25,12 @@ export enum CouponType {
   PERCENT_OFF_AMOUNT = 'Percentage Off',
 }
 
-export type Submissions = {
+export type Submission = {
   purchaseFlowId: string;
-  answer1: string | undefined;
-  answer2: string | undefined;
-  answer3: string | undefined;
+  answers: Answer[];
+};
+
+export type Answer = {
+  id: string;
+  text: string;
 };
