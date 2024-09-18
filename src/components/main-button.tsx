@@ -33,7 +33,7 @@ export const MainButton: FC<Survey> = (survey) => {
                 appDefinitionId: WIX_ECOMMERCE_APP_ID,
                 widgetId: CHECKOUT_PAGE_ID,
                 slotId: 'checkout:summary:before',
-              },
+              }
             });
 
             dashboard.showToast({

@@ -9,6 +9,7 @@ export type Question = {
   text: string;
 };
 
+// This part can be extended with more answer types.
 export enum QuestionType {
   SHORT_ANSWER = 'Short Answer',
 }
