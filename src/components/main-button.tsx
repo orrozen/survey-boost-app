@@ -47,26 +47,6 @@ export const MainButton: FC<Survey> = (survey) => {
             type: 'error',
           });
         }
-
-        try {
-          await httpClient.fetchWithAuth(
-            `${import.meta.env.BASE_API_URL}/survey`,
-            {
-              method: 'POST',
-              body: JSON.stringify(survey),
-            },
-          );
-
-          dashboard.showToast({
-            message: 'Settings Updated Successfully',
-            type: 'success',
-          });
-        } catch (error) {
-          dashboard.showToast({
-            message: 'Failed to Update Settings',
-            type: 'error',
-          });
-        }
       }}
       prefixIcon={<GetStarted />}
     >

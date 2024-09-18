@@ -15,6 +15,7 @@ import { MainButton } from '../../components/main-button';
 import type { Survey } from '../../types';
 import '@wix/design-system/styles.global.css';
 import { QuestionsTab } from '../../components/questions-tab';
+import { SaveButton } from '../../components/save-button';
 
 export interface TabContent {
   [key: number]: JSX.Element;
@@ -71,7 +72,7 @@ const Index: FC = () => {
                 <Button skin='light' onClick={onCancel}>
                   Cancel
                 </Button>
-                <Button skin='light'>Save</Button>
+                <SaveButton {...survey} />
                 <MainButton {...survey} />
               </Box>
             }
