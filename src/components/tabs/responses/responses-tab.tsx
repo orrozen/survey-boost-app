@@ -21,7 +21,6 @@ export const ResponsesTab: FC<ResponsesTabProps> = ({
         `${import.meta.env.BASE_API_URL}/checkout-submission`,
       );
       const data: Submission[] = await res.json();
-      console.log(data);
       setSubmissions(data);
     };
 

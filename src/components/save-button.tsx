@@ -31,7 +31,6 @@ export const SaveButton: FC<Survey> = (survey) => {
           });
         }
       }}
-      prefixIcon={<GetStarted />}
     >
       Save
     </Button>
