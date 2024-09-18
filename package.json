@@ -30,7 +30,8 @@
     "serve": "wix app serve",
     "generate": "wix app generate",
     "logs": "wix app logs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "logout": "wix logout"
   },
   "packageManager": "yarn@4.4.1"
 }

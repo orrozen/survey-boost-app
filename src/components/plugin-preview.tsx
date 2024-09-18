@@ -2,10 +2,10 @@ import React, { type FC } from 'react';
 import { CarbonOffset } from './carbon-offset';
 import { Box } from '@wix/design-system';
 import checkoutScreenshot from '../assets/checkout.png';
-import type { Settings } from '../types';
+import type { Survey } from '../types';
 import '@wix/design-system/styles.global.css';
 
-export const PluginPreview: FC<Settings> = (settings) => {
+export const PluginPreview: FC<Survey> = (survey) => {
   return (
     <Box
       verticalAlign='middle'
@@ -33,7 +33,7 @@ export const PluginPreview: FC<Settings> = (settings) => {
           backgroundColor='rgba(240, 240, 240, 0.9)'
         >
           <CarbonOffset
-            settings={settings}
+            survey={survey}
           />
         </Box>
       </Box>

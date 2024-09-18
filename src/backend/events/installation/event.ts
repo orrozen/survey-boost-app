@@ -1,48 +1,47 @@
 import { auth } from '@wix/essentials';
 import { collections } from '@wix/data';
 import { appInstances } from '@wix/app-management';
-import { CHECKOUT_COLLECTION_ID, SETTINGS_COLLECTION_ID } from '../../consts';
+import { CHECKOUT_SUBMISSIONS_COLLECTION_ID, SURVEY_COLLECTION_ID } from '../../consts';
 
 appInstances.onAppInstanceInstalled(() => {
   auth.elevate(collections.createDataCollection)({
-    _id: SETTINGS_COLLECTION_ID,
-    displayName: "Carbon Offset Settings",
+    _id: SURVEY_COLLECTION_ID,
+    displayName: "Survey Boost",
     fields: [
-      { key: 'title', type: collections.Type.TEXT },
-      { key: 'amount', type: collections.Type.NUMBER },
-      { key: 'color', type: collections.Type.TEXT },
-      { key: 'iconColor', type: collections.Type.TEXT },
+      { key: 'question1', type: collections.Type.TEXT },
+      { key: 'question2', type: collections.Type.TEXT },
+      { key: 'question3', type: collections.Type.TEXT },
+      { key: 'couponType', type: collections.Type.TEXT },
+      { key: 'couponAmount', type: collections.Type.NUMBER },
     ],
     permissions: {
-      // Make sure to change the permissions according to the actual usage of your collection
-      insert: collections.Role.ANYONE,
-      read: collections.Role.ANYONE,
-      remove: collections.Role.ANYONE,
-      update: collections.Role.ANYONE,
+      insert: collections.Role.ADMIN,
+      read: collections.Role.ADMIN,
+      remove: collections.Role.ADMIN,
+      update: collections.Role.ADMIN,
     },
     // Plugin for single item collection
     plugins: [{
       type: collections.PluginType.SINGLE_ITEM,
       singleItemOptions: {
-        singleItemId: "SETTINGS"
+        singleItemId: "SURVEY"
       },
     }],
   });
 
   auth.elevate(collections.createDataCollection)({
-    _id: CHECKOUT_COLLECTION_ID,
-    displayName: "Carbon Offset Checkout",
+    _id: CHECKOUT_SUBMISSIONS_COLLECTION_ID,
+    displayName: "Checkout Submission",
     fields: [
-      // In this case, checkoutId is stored as an "added" field that is not neccessarry
       // the actual _id for each item of this collection will be purchaseFlowId for easy fetching
-      { key: 'checkoutId', type: collections.Type.TEXT },
-      { key: 'shouldAdd', type: collections.Type.BOOLEAN },
+      { key: 'answer1', type: collections.Type.TEXT },
+      { key: 'answer2', type: collections.Type.TEXT },
+      { key: 'answer3', type: collections.Type.TEXT },
     ],
     permissions: {
-      // Make sure to change the permissions according to the actual usage of your collection
       insert: collections.Role.ANYONE,
-      read: collections.Role.ANYONE,
-      remove: collections.Role.ANYONE,
+      read: collections.Role.ADMIN,
+      remove: collections.Role.ADMIN,
       update: collections.Role.ANYONE,
     },
   });

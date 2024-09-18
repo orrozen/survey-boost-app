@@ -1,11 +1,15 @@
-import type { Settings } from "../types";
+import {CouponType, SubmissionCoupon, Survey} from "../types";
 
 // Update according to your app's needed collections
-export const SETTINGS_COLLECTION_ID = 'carbon-offset-settings';
-export const CHECKOUT_COLLECTION_ID = 'carbon-offset-checkout';
-export const DEFAULT_SETTING: Settings = {
-  title: 'Make it carbon neutral',
-  amount: 2,
-  color: '#000000',
-  iconColor: '#000000',
+export const SURVEY_COLLECTION_ID = 'Survey';
+export const CHECKOUT_SUBMISSIONS_COLLECTION_ID = 'survey-boost-checkout-submissions';
+export const TenPercentOffCoupon: SubmissionCoupon =  {
+  type: CouponType.PERCENT_OFF_AMOUNT,
+  amount: 10
+}
+export const DEFAULT_SURVEY: Survey = {
+  question1: "What made you decide to purchase from us today?",
+  question2: "How can we improve your shopping experience in the future?",
+  question3: "What feature or product would you like to see in our store next?",
+  coupon: TenPercentOffCoupon
 };

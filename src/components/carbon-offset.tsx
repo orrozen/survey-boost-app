@@ -1,10 +1,9 @@
 import React, { type FC } from 'react';
 import { httpClient } from '@wix/essentials';
-import { LeafIcon } from './leaf-icon';
-import type { Settings } from '../types'
+import type { Survey } from '../types'
 
 type Props = {
-  settings: Settings;
+  survey: Survey;
   purchaseFlowId?: string;
   checkoutId?: string;
   checked?: boolean;
@@ -12,7 +11,7 @@ type Props = {
 };
 
 export const CarbonOffset: FC<Props> = ({
-  settings,
+  survey,
   purchaseFlowId,
   checkoutId,
   checked = false,
@@ -41,12 +40,13 @@ export const CarbonOffset: FC<Props> = ({
             // We are using the same component both for rendering on site and for previewing in dashboard
             // so we make sure it does not do anything when changing / clicking things in preview
             if (purchaseFlowId) {
-              await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout`, {
+              await httpClient.fetchWithAuth(`${import.meta.env.BASE_API_URL}/checkout-submission`, {
                 method: 'POST',
                 body: JSON.stringify({
                   purchaseFlowId,
-                  checkoutId,
-                  shouldAdd: e.target.checked,
+                    answer1: '',
+                    answer2: '',
+                    answer3: ''
                 }),
               });
 
@@ -57,37 +57,6 @@ export const CarbonOffset: FC<Props> = ({
             };
           }}
         />
-        <p
-          style={{
-            color: settings.color,
-            fontSize: '18px',
-            fontFamily: 'Avenir',
-          }}
-        >
-          {settings.title}
-        </p>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          color: 'yellow'
-        }}
-      >
-        <LeafIcon
-          color={settings.iconColor}
-        />
-        <p
-          style={{
-            color: settings.color,
-            fontSize: '18px',
-            fontFamily: 'Avenir',
-            fontWeight: 'bold'
-          }}
-        >
-          {`$${settings.amount}`}
-        </p>
       </div>
     </div>
   );
