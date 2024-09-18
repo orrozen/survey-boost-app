@@ -17,25 +17,12 @@ export interface SubmissionCoupon {
   type: CouponType;
   // To be used for percent off and money off
   amount: number;
-  coupon: SubmissionCoupon;
-}
-
-export interface SubmissionCoupon {
-  type: CouponType;
-  // To be used for percent off and money off
-  amount: number;
-}
-
-export enum tabs {
-  questions = 'Questions',
-  responses = 'Responses',
-  analytics = 'Analytics',
 }
 
 export enum CouponType {
-  FREE_SHIPPING,
-  MONEY_OFF_AMOUNT,
-  PERCENT_OFF_AMOUNT,
+  FREE_SHIPPING = 'Free shipping',
+  MONEY_OFF_AMOUNT = 'Amount off',
+  PERCENT_OFF_AMOUNT = 'Percentage Off',
 }
 
 export type Submissions = {

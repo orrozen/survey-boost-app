@@ -1,21 +1,9 @@
-import React, { useState, type FC } from 'react';
+import React, { type FC } from 'react';
 import { Survey } from '../types';
-import {
-  Button,
-  Card,
-  Cell,
-  Dropdown,
-  EmptyState,
-  FormField,
-  InputArea,
-  Layout,
-  TextButton,
-} from '@wix/design-system';
-import { Add } from '@wix/wix-ui-icons-common';
 import '@wix/design-system/styles.global.css';
-import { AddQuestionIllustration } from './add-question-illustration';
-import { Questions } from './questions';
-import { SurveyQuestion } from './question';
+import { QuestionsSection } from './questions-section';
+import { CouponSection } from './coupon-section';
+import { Box, Cell, Layout } from '@wix/design-system';
 
 export interface QuestionsTabProps {
   survey?: Survey;
@@ -32,58 +20,20 @@ export const QuestionsTab: FC<QuestionsTabProps> = ({
   addNewDisabled,
   setAddNewDisabled,
 }: QuestionsTabProps) => {
-  const has3Questions = survey?.questions?.length === 3;
-  const isEmptyState =
-    (!survey || !survey.questions || survey.questions.length === 0) &&
-    !isInAddNewState;
-
-  const addQuestionToggle = () => {
-    if (!has3Questions) {
-      setIsInAddNewState(true);
-      setAddNewDisabled(true);
-    }
-  };
-
   return (
-    <Card>
-      <Card.Header
-        title='Questions'
-        subtitle='The questions you set here will be included in your survey in the summary of your checkout page.'
-        suffix={
-          <Button
-            size='small'
-            prefixIcon={<Add />}
-            onClick={addQuestionToggle}
-            disabled={addNewDisabled}
-          >
-            Add Question
-          </Button>
-        }
-      />
-      <Card.Divider />
-      <Card.Content>
-        {isInAddNewState && <SurveyQuestion />}
-        {isEmptyState ? (
-          <EmptyState
-            theme='page'
-            image={<AddQuestionIllustration />}
-            title='You don’t have any questions yet'
-            subtitle='Start adding question and collect data from your users'
-          >
-            {
-              <TextButton
-                prefixIcon={<Add />}
-                onClick={addQuestionToggle}
-                disabled={addNewDisabled}
-              >
-                Add Question
-              </TextButton>
-            }
-          </EmptyState>
-        ) : (
-          <Questions questions={survey?.questions ?? []} />
-        )}
-      </Card.Content>
-    </Card>
+    <Layout gap={'24px'}>
+      <Cell span={12}>
+        <CouponSection coupon={survey?.coupon} />
+      </Cell>
+      <Cell span={12}>
+        <QuestionsSection
+          survey={survey}
+          isInAddNewState={isInAddNewState}
+          setIsInAddNewState={setIsInAddNewState}
+          addNewDisabled={addNewDisabled}
+          setAddNewDisabled={setAddNewDisabled}
+        />
+      </Cell>
+    </Layout>
   );
 };
