@@ -1,11 +1,19 @@
 export type Survey = {
-  question1: string | undefined;
-  question2: string | undefined;
-  question3: string | undefined;
-  coupon: Coupon;
+  questions: Question[];
+  coupon: SubmissionCoupon;
+};
+
+export type Question = {
+  id: string;
+  type: QuestionType;
+  text: string;
+};
+
+export enum QuestionType {
+  SHORT_ANSWER = 'Short Answer',
 }
 
-export interface Coupon {
+export interface SubmissionCoupon {
   type: CouponType
   // To be used for percent off and money off
   amount: number

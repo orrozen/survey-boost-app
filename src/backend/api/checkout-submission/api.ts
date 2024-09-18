@@ -2,7 +2,7 @@ import { upsertDataToCollection, safelyGetItemFromCollection } from '../../datab
 import { CHECKOUT_SUBMISSIONS_COLLECTION_ID, SURVEY_COLLECTION_ID } from '../../consts';
 import { coupons } from "@wix/marketing";
 import { getSurvey } from '../survey/api';
-import { CouponType, SubmissionCoupon } from '../../../types';
+import { CouponType } from '../../../types';
 
 export async function GET(req: Request) {
   const purchaseFlowId = new URL(req.url).searchParams.get('purchaseFlowId') as string;

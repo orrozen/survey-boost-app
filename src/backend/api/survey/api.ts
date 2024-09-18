@@ -9,9 +9,7 @@ export async function GET(req: Request) {
 
   const SurveyContent = surveyCollection.items[0]?.data as Survey;
   const survey: Survey = {
-    question1: SurveyContent.question1 || DEFAULT_SURVEY.question1,
-    question2: SurveyContent.question2 || DEFAULT_SURVEY.question2,
-    question3: SurveyContent.question3 || DEFAULT_SURVEY.question3,
+    questions: SurveyContent.questions || DEFAULT_SURVEY.questions,
     coupon: SurveyContent.coupon || DEFAULT_SURVEY.coupon,
   };
 
@@ -25,9 +23,7 @@ export async function getSurvey() {
 
   const SurveyContent = surveyCollection.items[0]?.data as Survey;
   const survey: Survey = {
-    question1: SurveyContent.question1 || DEFAULT_SURVEY.question1,
-    question2: SurveyContent.question2 || DEFAULT_SURVEY.question2,
-    question3: SurveyContent.question3 || DEFAULT_SURVEY.question3,
+    questions: SurveyContent.questions || DEFAULT_SURVEY.questions,
     coupon: SurveyContent.coupon || DEFAULT_SURVEY.coupon,
   };
 

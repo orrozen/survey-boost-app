@@ -1,4 +1,4 @@
-import {CouponType, SubmissionCoupon, Survey} from "../types";
+import {CouponType, QuestionType, SubmissionCoupon, Survey} from "../types";
 
 // Update according to your app's needed collections
 export const SURVEY_COLLECTION_ID = 'Survey';
@@ -8,8 +8,10 @@ export const TenPercentOffCoupon: SubmissionCoupon =  {
   amount: 10
 }
 export const DEFAULT_SURVEY: Survey = {
-  question1: "What made you decide to purchase from us today?",
-  question2: "How can we improve your shopping experience in the future?",
-  question3: "What feature or product would you like to see in our store next?",
+  questions: [
+      {id: '1', type: QuestionType.SHORT_ANSWER , text: "What made you decide to purchase from us today?"},
+      {id: '2', type: QuestionType.SHORT_ANSWER , text: "How can we improve your shopping experience in the future?"},
+      {id: '3', type: QuestionType.SHORT_ANSWER , text: "What feature or product would you like to see in our store next?"},
+  ],
   coupon: TenPercentOffCoupon
 };
