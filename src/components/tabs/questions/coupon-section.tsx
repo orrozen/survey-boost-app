@@ -58,7 +58,7 @@ export const CouponSection: FC<CouponSectionProps> = ({
           <Cell span={12}>
             <FormField label='Discount' stretchContent={false}>
               <NumberInput
-                suffix={<Input.Affix>$</Input.Affix>}
+                suffix={<Input.Affix>%</Input.Affix>}
                 value={couponValue}
                 onChange={(numberValue, stringValue) =>
                   setCouponValue(stringValue)
